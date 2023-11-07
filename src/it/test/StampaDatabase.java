@@ -21,6 +21,7 @@ public class StampaDatabase {
 			System.out.println("ID: " + rs.getInt(1));
 			System.out.println("Artista: " + rs.getString(2));
 			System.out.println("Album: " + rs.getString(3));
+			System.out.println("anno: " + rs.getString(4));
 			System.out.println("--------------------------------");
 		}
 		

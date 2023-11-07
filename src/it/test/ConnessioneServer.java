@@ -20,16 +20,12 @@ public class ConnessioneServer {
 			
 			connessione = dataSource.getConnection();
 		}
-		System.out.println("La connessione al server è stata stabilita");
-		System.out.println("--------------------------------");
-		
 		return connessione;
 	}
 	
 	public void closeConnection() throws SQLException {
 		if (connessione != null) {
 			connessione.close();
-			System.out.println("La connessione al server è stata chiusa");
 		}
 	}
 }

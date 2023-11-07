@@ -21,7 +21,7 @@ public class Principale {
 			int opzioneScelta = seleziona.nextInt();
 
 			StampaDatabase stamp = new StampaDatabase();
-			AggiugiArtista add = new AggiugiArtista();
+			Aggiugiband add = new Aggiugiband();
 			RimuoviLista remove = new RimuoviLista();
 			Cerca cerca = new Cerca();
 
