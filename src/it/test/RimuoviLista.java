@@ -6,27 +6,27 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class RimuoviLista {
-	
+
 	public void rimuoviLista() throws SQLException {
-		
+
 		Scanner scanner = new Scanner(System.in);
-		
-		System.out.print("inserisci l'ID dell'artista da rimuovere: ");
-		String id = scanner.next();
+
+		System.out.print("inserisci l'ID dell'artista o la band da rimuovere: ");
+		String rimuovi = scanner.next();
 		scanner.close();
-		
+
 		ConnessioneServer conn = new ConnessioneServer();
-		Connection rimuovi = conn.getConnection();
-		
-		String sqlRimuovi = "DELETE FROM musica.lista WHERE id = ?";
-		PreparedStatement ps = rimuovi.prepareStatement(sqlRimuovi);
-		ps.setString(1, id);
+		Connection rimuovi1 = conn.getConnection();
+
+		String sqlRimuovi = "DELETE FROM musica.lista WHERE band = ? OR album = ?";
+		PreparedStatement ps = rimuovi1.prepareStatement(sqlRimuovi);
+		ps.setString(1, rimuovi);
+		ps.setString(2, rimuovi);
 		ps.executeUpdate();
-		
 
 		System.out.println("Operazione conclusa con successo");
 		ps.close();
-		
+
 	}
 
 }

@@ -33,7 +33,7 @@ public class Principale {
 				}
 			} else if (opzioneScelta == 2) {
 				try {
-					add.aggiugiArtista();
+					add.aggiugiBand();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
