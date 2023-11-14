@@ -11,17 +11,17 @@ public class RimuoviLista {
 
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.print("inserisci l'ID dell'artista o la band da rimuovere: ");
-		String rimuovi = scanner.next();
+		System.out.print("inserisci l'artista o la band da rimuovere: ");
+		int id = scanner.nextInt();
 		scanner.close();
 
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection rimuovi1 = conn.getConnection();
 
-		String sqlRimuovi = "DELETE FROM musica.lista WHERE band = ? OR album = ?";
+		String sqlRimuovi = "DELETE FROM RaccoltaMusicale.band WHERE id = ?";
 		PreparedStatement ps = rimuovi1.prepareStatement(sqlRimuovi);
-		ps.setString(1, rimuovi);
-		ps.setString(2, rimuovi);
+		ps.setLong(1, id);
+		
 		ps.executeUpdate();
 
 		System.out.println("Operazione conclusa con successo");

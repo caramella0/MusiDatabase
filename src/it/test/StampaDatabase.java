@@ -12,14 +12,14 @@ public class StampaDatabase {
 	public void stampaDati() throws SQLException {
 		ConnessioneServer conn = new ConnessioneServer();
 		stampa = conn.getConnection();
-		String sqlStampa ="SELECT * FROM musica.lista";
+		String sqlStampa ="SELECT * FROM RaccoltaMusicale.band";
 
 		PreparedStatement ps = stampa.prepareStatement(sqlStampa);
 		ResultSet rs = ps.executeQuery();
 		
 		while(rs.next()) {
 			System.out.println("ID: " + rs.getInt(1));
-			System.out.println("Artista: " + rs.getString(2));
+			System.out.println("titolo_album: " + rs.getString(2));
 			System.out.println("Album: " + rs.getString(3));
 			System.out.println("anno: " + rs.getString(4));
 			System.out.println("--------------------------------");

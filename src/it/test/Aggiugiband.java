@@ -12,21 +12,21 @@ public class Aggiugiband {
 
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("inserisci la band: ");
+		System.out.print("inserisci la nome band: ");
 		String band = scanner.next();
-		System.out.print("inserisci album: ");
-		String album = scanner.next();
-		System.out.print("inserisci l'anno: ");
-		String anno = scanner.next();
+		System.out.print("inserisci genere band: ");
+		String genere = scanner.next();
+		System.out.print("inserisci l'anno della band: ");
+		int anno = scanner.nextInt();
 		
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection aggiungi = conn.getConnection();
 		
-		String sqlAggiungi = "INSERT INTO musica.lista (band, album, anno ) VALUES (?,?,?)";
+		String sqlAggiungi = "INSERT INTO RaccoltaMusicale.band (nome_band, genere_band, Anno_di_formazione_band ) VALUES (?,?,?)";
 		PreparedStatement ps = aggiungi.prepareStatement(sqlAggiungi);
 		ps.setString(1, band);
-		ps.setString(2, album);
-		ps.setString(3, anno);
+		ps.setString(2, genere);
+		ps.setLong(3, anno);
 		ps.executeUpdate();
 		
 		System.out.println("Operazione conclusa con successo");

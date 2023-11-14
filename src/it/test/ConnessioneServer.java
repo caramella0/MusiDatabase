@@ -16,7 +16,7 @@ public class ConnessioneServer {
 			dataSource.setPortNumber(3306);
 			dataSource.setPassword("cirfeta1");
 			dataSource.setUser("root");
-			dataSource.setDatabaseName("musica");
+			dataSource.setDatabaseName("RaccoltaMusicale");
 			
 			connessione = dataSource.getConnection();
 		}
