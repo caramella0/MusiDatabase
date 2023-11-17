@@ -1,9 +1,11 @@
-package it.test;
+package it.test.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import it.test.resouce.ConnessioneServer;
 
 public class AggiungiAlbum {
 
@@ -28,6 +30,5 @@ public class AggiungiAlbum {
 		System.out.println("Operazione conclusa con successo");
 
 		ps.close();
-		scanner.close();
 	}
 }

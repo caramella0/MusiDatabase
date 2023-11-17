@@ -1,4 +1,4 @@
-package it.test;
+package it.test.resouce;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,6 +19,7 @@ public class ConnessioneServer {
 			dataSource.setDatabaseName("RaccoltaMusicale");
 			
 			connessione = dataSource.getConnection();
+			
 		}
 		return connessione;
 	}

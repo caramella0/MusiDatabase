@@ -1,10 +1,12 @@
-package it.test;
+package it.test.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import it.test.resouce.ConnessioneServer;
 
 public class Cerca {
 

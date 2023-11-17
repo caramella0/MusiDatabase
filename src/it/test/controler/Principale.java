@@ -1,7 +1,14 @@
-package it.test;
+package it.test.controler;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import it.test.dao.AggiugiBandDao;
+import it.test.dao.AggiungiAlbum;
+import it.test.dao.Cerca;
+import it.test.dao.RimuoviLista;
+import it.test.dao.StampaDatabase;
+import it.test.resouce.ConnessioneServer;
 
 public class Principale {
 
@@ -23,7 +30,7 @@ public class Principale {
 			int opzioneScelta = seleziona.nextInt();
 
 			StampaDatabase stamp = new StampaDatabase();
-			Aggiugiband band = new Aggiugiband();
+			AggiugiBandDao band = new AggiugiBandDao();
 			AggiungiAlbum album = new AggiungiAlbum();
 			RimuoviLista remove = new RimuoviLista();
 			Cerca cerca = new Cerca();
@@ -35,16 +42,17 @@ public class Principale {
 
 				Scanner opzione = new Scanner(System.in);
 				System.out.print("Vuoi caricare una Band o un Album o entrambi? "
-						+ "Digita 1 per caricare una Band o 2 per caricare un Album o 3 per caricare entrambi ");
-				int scelta = opzione.nextInt();
+						+ "Digita 'band' per caricare una Band, 'album' per caricare un Album o 'entrambi'"
+						+ " per caricare entrambi ");
+				String scelta = opzione.next();
 
-				if (scelta == 1) {
+				if (scelta.equals("band")) {
 					band.aggiugiBand();
 
-				} else if (scelta == 2) {
+				} else if (scelta.equals("album")) {
 					album.aggiugiAlbum();
 
-				} else if (scelta == 3) {
+				} else if (scelta.equals("entrambi")) {
 					band.aggiugiBand();
 					
 					album.aggiugiAlbum();
@@ -52,11 +60,19 @@ public class Principale {
 				}
 
 			} else if (opzioneScelta == 3) {
+				
 				remove.rimuoviLista();
+				
 			} else if (opzioneScelta == 4) {
+				
 				remove.rimuoviLista();
+				
 			} else if (opzioneScelta == 5) {
-				cerca.ricerca();
+				
+				conness.getConnection();
+				System.out.println(" ");
+				System.out.println("Connessione stabilita");
+
 			} else if (opzioneScelta == 6) {
 				conness.closeConnection();
 				System.out.println("La connessione e stata chiusa");
