@@ -6,7 +6,7 @@ public class Band {
 	
 	private String genereBand;
 	
-	private String annoDiFormazioneBand;
+	private int annoDiFormazioneBand;
 
 	public String getTitoloBand() {
 		return titoloBand;
@@ -24,11 +24,11 @@ public class Band {
 		this.genereBand = genereBand;
 	}
 
-	public String getAnnoDiFormazioneBand() {
+	public int getAnnoDiFormazioneBand() {
 		return annoDiFormazioneBand;
 	}
 
-	public void setAnnoDiFormazioneBand(String annoDiFormazioneBand) {
+	public void setAnnoDiFormazioneBand(int annoDiFormazioneBand) {
 		this.annoDiFormazioneBand = annoDiFormazioneBand;
 	}
 	

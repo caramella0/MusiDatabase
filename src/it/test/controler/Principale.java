@@ -4,11 +4,14 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import it.test.dao.AggiugiBandDao;
-import it.test.dao.AggiungiAlbum;
+import it.test.dao.AggiungiAlbumDao;
 import it.test.dao.Cerca;
-import it.test.dao.RimuoviLista;
+import it.test.dao.RimuoviListaDao;
 import it.test.dao.StampaDatabase;
 import it.test.resouce.ConnessioneServer;
+import it.test.service.AggiungiAlbumService;
+import it.test.service.AggiungiBandService;
+import it.test.service.RimuoviListaService;
 
 public class Principale {
 
@@ -29,15 +32,12 @@ public class Principale {
 
 			int opzioneScelta = seleziona.nextInt();
 
-			StampaDatabase stamp = new StampaDatabase();
-			AggiugiBandDao band = new AggiugiBandDao();
-			AggiungiAlbum album = new AggiungiAlbum();
-			RimuoviLista remove = new RimuoviLista();
-			Cerca cerca = new Cerca();
-			ConnessioneServer conness = new ConnessioneServer();
+			RimuoviListaDao remove = new RimuoviListaDao();
 
 			if (opzioneScelta == 1) {
+				StampaDatabase stamp = new StampaDatabase();
 				stamp.stampaDati();
+				
 			} else if (opzioneScelta == 2) {
 
 				Scanner opzione = new Scanner(System.in);
@@ -47,33 +47,46 @@ public class Principale {
 				String scelta = opzione.next();
 
 				if (scelta.equals("band")) {
-					band.aggiugiBand();
 
+					AggiungiBandService band = new AggiungiBandService();
+					band.gestisciDatiBand();
+					
 				} else if (scelta.equals("album")) {
-					album.aggiugiAlbum();
+					
+					AggiungiAlbumService album = new AggiungiAlbumService();
+					album.aggiungiAlbum();
+					
 
 				} else if (scelta.equals("entrambi")) {
-					band.aggiugiBand();
 					
-					album.aggiugiAlbum();
-
+					AggiungiBandService band = new AggiungiBandService();
+					band.gestisciDatiBand();
+					
+					AggiungiAlbumService album = new AggiungiAlbumService();
+					album.aggiungiAlbum();
+					
 				}
 
 			} else if (opzioneScelta == 3) {
-				
-				remove.rimuoviLista();
+			
+				RimuoviListaService rimuovi = new RimuoviListaService();
+				rimuovi.rimuoviLista();
 				
 			} else if (opzioneScelta == 4) {
 				
-				remove.rimuoviLista();
-				
+				Cerca cerca = new Cerca();
+				cerca.ricerca();
+
 			} else if (opzioneScelta == 5) {
 				
+				ConnessioneServer conness = new ConnessioneServer();
 				conness.getConnection();
 				System.out.println(" ");
 				System.out.println("Connessione stabilita");
 
 			} else if (opzioneScelta == 6) {
+				
+				ConnessioneServer conness = new ConnessioneServer();
 				conness.closeConnection();
 				System.out.println("La connessione e stata chiusa");
 

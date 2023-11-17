@@ -5,24 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import it.test.model.Album;
 import it.test.resouce.ConnessioneServer;
 
-public class RimuoviLista {
+public class RimuoviListaDao {
 
-	public void rimuoviLista() throws SQLException {
+	public void rimuoviLista(Album id) throws SQLException {
 
-		Scanner scanner = new Scanner(System.in);
-
-		System.out.print("inserisci l'artista o la band da rimuovere: ");
-		int id = scanner.nextInt();
-		scanner.close();
 
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection rimuovi1 = conn.getConnection();
 
 		String sqlRimuovi = "DELETE FROM RaccoltaMusicale.band WHERE id = ?";
 		PreparedStatement ps = rimuovi1.prepareStatement(sqlRimuovi);
-		ps.setLong(1, id);
+		ps.setLong(1, id.getIdBand());
 		
 		ps.executeUpdate();
 
