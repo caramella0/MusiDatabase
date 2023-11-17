@@ -18,7 +18,7 @@ public class AggiungiBandService {
 		System.out.print("inserisci l'anno della band: ");
 		int anno = scanner.nextInt();
 
-		Band band = new Band();
+		Band bandB = new Band();
 		
 		
 		
