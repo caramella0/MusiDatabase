@@ -16,7 +16,7 @@ public class RimuoviListaBandService {
 		
 		RimuoviListaBandDao daoBand = new RimuoviListaBandDao();
 		
-		daoBand.
+		daoBand.rimuoviLista();
 
 		
 

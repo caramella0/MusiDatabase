@@ -17,7 +17,7 @@ public class ScannerAlbum {
 		long inserisciAnno = scanner.nextInt();
 		
 		AggiungiAlbumService service = new AggiungiAlbumService();
-		service.aggiungiAlbum(inserisciAlbum, inserisciAnno);
+		service.aggiungiAlbumService(inserisciAlbum, inserisciAnno);
 		
 		scanner.close();
 	}

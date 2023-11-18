@@ -9,7 +9,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class RimuoviListaBandDao {
 
-	public void rimuoviLista(Album id) throws SQLException {
+	public void rimuoviLista(Album scelta) throws SQLException {
 
 
 		ConnessioneServer conn = new ConnessioneServer();

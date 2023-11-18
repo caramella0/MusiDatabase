@@ -9,7 +9,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class AggiungiAlbumDao {
 
-	public void aggiugiAlbum(Album album) throws SQLException {
+	public void aggiugiAlbumDao(Album album) throws SQLException {
 
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection aggiungi = conn.getConnection();

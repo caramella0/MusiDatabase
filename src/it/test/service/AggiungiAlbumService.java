@@ -8,7 +8,7 @@ import it.test.model.Album;
 
 public class AggiungiAlbumService {
 
-	public void aggiungiAlbum(String inserisciAlbum, long inserisciAnno) throws SQLException {
+	public void aggiungiAlbumService(String inserisciAlbum, long inserisciAnno) throws SQLException {
 		
 		Album album = new Album();
 		
@@ -17,7 +17,7 @@ public class AggiungiAlbumService {
 
 		AggiungiAlbumDao dao = new AggiungiAlbumDao();
 		
-		dao.aggiugiAlbum(album);
+		dao.aggiugiAlbumDao(album);
 	
 	}
 }

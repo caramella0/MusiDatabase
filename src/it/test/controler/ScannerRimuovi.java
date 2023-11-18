@@ -19,20 +19,14 @@ public class ScannerRimuovi {
 
 		if (scelta.equals("band")) {
 
-			Band band = new Band();
-
-			band.setTitoloBand(scelta);
-
 			RimuoviListaBandService rimnuoviBand = new RimuoviListaBandService();
 			
-			rimnuoviBand.rimuoviLista(scelta);
+			rimnuoviBand.rimuoviListaService(scelta);
+			
+			
 			
 		} else if (scelta.equals("album")) {
 
-			Album album = new Album();
-			
-			album.setNomeAlbum(scelta);
-			
 			RimuoviListaAlbumService rimuoviAlbum = new RimuoviListaAlbumService();
 			
 			rimuoviAlbum.rimuoviLista(scelta);
