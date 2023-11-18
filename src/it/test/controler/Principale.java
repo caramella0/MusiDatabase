@@ -1,102 +1,79 @@
 package it.test.controler;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import it.test.dao.AggiugiBandDao;
-import it.test.dao.AggiungiAlbumDao;
 import it.test.dao.Cerca;
-import it.test.dao.RimuoviListaBandDao;
 import it.test.dao.StampaDatabase;
 import it.test.resouce.ConnessioneServer;
-import it.test.service.AggiungiAlbumService;
-import it.test.service.AggiungiBandService;
-import it.test.service.RimuoviListaBandService;
+import it.test.service.SceltaDueLista;
 
 public class Principale {
 
 	public static void main(String[] args) throws SQLException {
-		Scanner seleziona = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("--------------------------------");
-			System.out.println("Seleziona dalla lista quello che vuoi fare: ");
-			System.out.println("1: Stampa tutto");
-			System.out.println("2: Aggiungi al database");
-			System.out.println("3: Rimuovi dal database");
-			System.out.println("4: Cerca nel database");
-			System.out.println("5: Controlla la connessione");
-			System.out.println("6: Esci");
-			System.out.print("Digita un numero per selezionare: ");
-			System.out.print("");
 
-			int opzioneScelta = seleziona.nextInt();
+			Scanner seleziona = new Scanner(System.in);
 
-			RimuoviListaBandDao remove = new RimuoviListaBandDao();
+			ListaPincipale listaPrincipale = new ListaPincipale();
 
-			if (opzioneScelta == 1) {
-				StampaDatabase stamp = new StampaDatabase();
-				stamp.stampaDati();
+			listaPrincipale.listaPrincipale();
 
-			} else if (opzioneScelta == 2) {
+			try {
+				if (seleziona.hasNext()) {
+					
+					int opzioneScelta = seleziona.nextInt();
 
-				Scanner opzione = new Scanner(System.in);
-				System.out.print("Vuoi caricare una Band o un Album o entrambi? "
-						+ "Digita 'band' per caricare una Band, 'album' per caricare un Album o 'entrambi'"
-						+ " per caricare entrambi ");
-				String scelta = opzione.next();
+					if (opzioneScelta >= 1 && opzioneScelta <= 7) {
+						
+						if (opzioneScelta == 1) {
+							
+							StampaDatabase stamp = new StampaDatabase();
+							stamp.stampaDati();
 
-				if (scelta.equals("band")) {
+						} else if (opzioneScelta == 2) {
 
-					ScannerBand band = new ScannerBand();
-					band.scannerBand();
+							SceltaDueLista listaDue = new SceltaDueLista();
+							
+							listaDue.sceltaDue();
+							
+						} else if (opzioneScelta == 3) {
 
-				} else if (scelta.equals("album")) {
+							ScannerRimuovi rimuovi = new ScannerRimuovi();
+							rimuovi.scannerRimuovi();
 
-					ScannerAlbum album = new ScannerAlbum();
-					album.scannerAggiungi();
+						} else if (opzioneScelta == 4) {
 
-				} else if (scelta.equals("entrambi")) {
+							Cerca cerca = new Cerca();
+							cerca.ricerca();
 
-					ScannerBand band = new ScannerBand();
-					band.scannerBand();
+						} else if (opzioneScelta == 5) {
 
-					ScannerAlbum album = new ScannerAlbum();
-					album.scannerAggiungi();
+							ConnessioneServer conness = new ConnessioneServer();
+							conness.getConnection();
+							System.out.println(" ");
+							System.out.println("Connessione stabilita");
+
+						} else if (opzioneScelta == 6) {
+
+							ConnessioneServer conness = new ConnessioneServer();
+							conness.closeConnection();
+							System.out.println("La connessione e stata chiusa");
+
+							break;
+
+						}
+
+					}
 
 				}
 
-			} else if (opzioneScelta == 3) {
-
-				ScannerRimuovi rimuovi = new ScannerRimuovi();
-				rimuovi.scannerRimuovi();
-
-			} else if (opzioneScelta == 4) {
-
-				Cerca cerca = new Cerca();
-				cerca.ricerca();
-
-			} else if (opzioneScelta == 5) {
-
-				ConnessioneServer conness = new ConnessioneServer();
-				conness.getConnection();
-				System.out.println(" ");
-				System.out.println("Connessione stabilita");
-
-			} else if (opzioneScelta == 6) {
-
-				ConnessioneServer conness = new ConnessioneServer();
-				conness.closeConnection();
-				System.out.println("La connessione e stata chiusa");
-
-				break;
-
-			} else if (opzioneScelta <= 7) {
-				System.out.println("Opzione errata, scegli un numero dalla lista");
+			} catch (InputMismatchException e) {
+				System.out.println("Input non valido. Inserisci un numero.");
 			}
 
 		}
 
 	}
-
 }
