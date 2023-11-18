@@ -3,8 +3,6 @@ package it.test.controler;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import it.test.model.Album;
-import it.test.model.Band;
 import it.test.service.RimuoviListaAlbumService;
 import it.test.service.RimuoviListaBandService;
 
@@ -19,17 +17,20 @@ public class ScannerRimuovi {
 
 		if (scelta.equals("band")) {
 
-			RimuoviListaBandService rimnuoviBand = new RimuoviListaBandService();
+			System.out.print("Inserisci la band da cancellare: ");
+			String cancellaBand = scanner.next();
 			
-			rimnuoviBand.rimuoviListaService(scelta);
-			
-			
-			
+			RimuoviListaBandService serviceBand = new RimuoviListaBandService();
+			serviceBand.rimuoviListaService(cancellaBand);
+
 		} else if (scelta.equals("album")) {
 
-			RimuoviListaAlbumService rimuoviAlbum = new RimuoviListaAlbumService();
+			System.out.print("Inserisci l'album da cancellare: ");
+			String cancellaAlbum = scanner.next();
 			
-			rimuoviAlbum.rimuoviLista(scelta);
+			RimuoviListaAlbumService serviceAlbum = new RimuoviListaAlbumService();
+			serviceAlbum.rimuoviLista(cancellaAlbum);
+
 		}
 	}
 }
