@@ -48,22 +48,21 @@ public class Principale {
 
 				if (scelta.equals("band")) {
 
-					AggiungiBandService band = new AggiungiBandService();
-					band.gestisciDatiBand();
-					
+				ScannerBand band = new ScannerBand();
+				band.scannerBand();
+				
 				} else if (scelta.equals("album")) {
 					
-					AggiungiAlbumService album = new AggiungiAlbumService();
-					album.aggiungiAlbum();
-					
+					ScannerAlbum album = new ScannerAlbum();
+					album.scannerAggiungi();
 
 				} else if (scelta.equals("entrambi")) {
 					
-					AggiungiBandService band = new AggiungiBandService();
-					band.gestisciDatiBand();
-					
-					AggiungiAlbumService album = new AggiungiAlbumService();
-					album.aggiungiAlbum();
+					ScannerBand band = new ScannerBand();
+					band.scannerBand();
+						
+					ScannerAlbum album = new ScannerAlbum();
+					album.scannerAggiungi();
 					
 				}
 

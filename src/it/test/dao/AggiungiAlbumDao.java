@@ -3,7 +3,6 @@ package it.test.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 import it.test.model.Album;
 import it.test.resouce.ConnessioneServer;

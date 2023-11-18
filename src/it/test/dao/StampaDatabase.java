@@ -26,7 +26,6 @@ public class StampaDatabase {
 			System.out.println("Nome band: " + rsband.getString(2));
 			System.out.println("Genere: " + rsband.getString(3));
 			System.out.println("Anno: " + rsband.getString(4));
-			System.out.println("id: " + rsband.getString(5));
 			System.out.println("--------------------------------");
 		}
 
