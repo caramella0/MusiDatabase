@@ -6,12 +6,12 @@ import java.util.Scanner;
 import it.test.dao.AggiugiBandDao;
 import it.test.dao.AggiungiAlbumDao;
 import it.test.dao.Cerca;
-import it.test.dao.RimuoviListaDao;
+import it.test.dao.RimuoviListaBandDao;
 import it.test.dao.StampaDatabase;
 import it.test.resouce.ConnessioneServer;
 import it.test.service.AggiungiAlbumService;
 import it.test.service.AggiungiBandService;
-import it.test.service.RimuoviListaService;
+import it.test.service.RimuoviListaBandService;
 
 public class Principale {
 
@@ -32,12 +32,12 @@ public class Principale {
 
 			int opzioneScelta = seleziona.nextInt();
 
-			RimuoviListaDao remove = new RimuoviListaDao();
+			RimuoviListaBandDao remove = new RimuoviListaBandDao();
 
 			if (opzioneScelta == 1) {
 				StampaDatabase stamp = new StampaDatabase();
 				stamp.stampaDati();
-				
+
 			} else if (opzioneScelta == 2) {
 
 				Scanner opzione = new Scanner(System.in);
@@ -48,43 +48,43 @@ public class Principale {
 
 				if (scelta.equals("band")) {
 
-				ScannerBand band = new ScannerBand();
-				band.scannerBand();
-				
+					ScannerBand band = new ScannerBand();
+					band.scannerBand();
+
 				} else if (scelta.equals("album")) {
-					
+
 					ScannerAlbum album = new ScannerAlbum();
 					album.scannerAggiungi();
 
 				} else if (scelta.equals("entrambi")) {
-					
+
 					ScannerBand band = new ScannerBand();
 					band.scannerBand();
-						
+
 					ScannerAlbum album = new ScannerAlbum();
 					album.scannerAggiungi();
-					
+
 				}
 
 			} else if (opzioneScelta == 3) {
-			
-				RimuoviListaService rimuovi = new RimuoviListaService();
-				rimuovi.rimuoviLista();
-				
+
+				ScannerRimuovi rimuovi = new ScannerRimuovi();
+				rimuovi.scannerRimuovi();
+
 			} else if (opzioneScelta == 4) {
-				
+
 				Cerca cerca = new Cerca();
 				cerca.ricerca();
 
 			} else if (opzioneScelta == 5) {
-				
+
 				ConnessioneServer conness = new ConnessioneServer();
 				conness.getConnection();
 				System.out.println(" ");
 				System.out.println("Connessione stabilita");
 
 			} else if (opzioneScelta == 6) {
-				
+
 				ConnessioneServer conness = new ConnessioneServer();
 				conness.closeConnection();
 				System.out.println("La connessione e stata chiusa");
