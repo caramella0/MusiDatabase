@@ -9,7 +9,9 @@ public class ConnessioneServer {
 	
 	public Connection connessione;
 
-	public Connection getConnection() throws SQLException {
+	public Connection getConnection()  {
+		
+	try {
 		if (connessione == null) {
 			MysqlDataSource dataSource = new MysqlDataSource();
 			dataSource.setServerName("127.0.0.1");
@@ -21,7 +23,13 @@ public class ConnessioneServer {
 			connessione = dataSource.getConnection();
 			
 		}
-		return connessione;
+	
+	} catch (SQLException e) {
+		
+		System.out.println("Impossibile connettersi al server");
+		
+	}
+	return connessione;	
 	}
 	
 	public void closeConnection() throws SQLException {

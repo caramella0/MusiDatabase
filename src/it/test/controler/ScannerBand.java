@@ -1,5 +1,6 @@
 package it.test.controler;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import it.test.service.AggiungiBandService;
 
 public class ScannerBand {
 	
-	public void scannerBand() throws SQLException {
+	public void scannerBand() throws SQLException, ConnectException {
 		
 		Scanner scanner = new Scanner(System.in);
 

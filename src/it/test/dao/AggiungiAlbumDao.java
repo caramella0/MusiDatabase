@@ -1,15 +1,17 @@
 package it.test.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import it.test.controler.Principale;
 import it.test.model.Album;
 import it.test.resouce.ConnessioneServer;
 
 public class AggiungiAlbumDao {
 
-	public void aggiugiAlbumDao(Album album) throws SQLException {
+	public void aggiugiAlbumDao(Album album) throws SQLException, ConnectException {
 
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection aggiungi = conn.getConnection();
@@ -23,5 +25,7 @@ public class AggiungiAlbumDao {
 		System.out.println("Operazione conclusa con successo");
 
 		ps.close();
+		
+		Principale.main(null);
 	}
 }

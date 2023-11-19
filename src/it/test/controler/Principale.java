@@ -1,8 +1,10 @@
 package it.test.controler;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import it.test.dao.Cerca;
 import it.test.dao.StampaDatabase;
 import it.test.resouce.ConnessioneServer;
@@ -10,34 +12,31 @@ import it.test.service.SceltaDueLista;
 
 public class Principale {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, ConnectException, CommunicationsException {
 
-		while (true) {
-
-			Scanner seleziona = new Scanner(System.in);
-
+		try (Scanner seleziona = new Scanner(System.in)) {
 			ListaPincipale listaPrincipale = new ListaPincipale();
 
 			listaPrincipale.listaPrincipale();
 
 			try {
 				if (seleziona.hasNext()) {
-					
+
 					int opzioneScelta = seleziona.nextInt();
 
 					if (opzioneScelta >= 1 && opzioneScelta <= 7) {
-						
+
 						if (opzioneScelta == 1) {
-							
+
 							StampaDatabase stamp = new StampaDatabase();
 							stamp.stampaDati();
 
 						} else if (opzioneScelta == 2) {
 
 							SceltaDueLista listaDue = new SceltaDueLista();
-							
+
 							listaDue.sceltaDue();
-							
+
 						} else if (opzioneScelta == 3) {
 
 							ScannerRimuovi rimuovi = new ScannerRimuovi();
@@ -52,8 +51,13 @@ public class Principale {
 
 							ConnessioneServer conness = new ConnessioneServer();
 							conness.getConnection();
-							System.out.println(" ");
-							System.out.println("Connessione stabilita");
+
+							if (conness.equals(true)) {
+
+								System.out.println(" ");
+								System.out.println("Connessione stabilita");
+
+							}
 
 						} else if (opzioneScelta == 6) {
 
@@ -61,7 +65,6 @@ public class Principale {
 							conness.closeConnection();
 							System.out.println("La connessione e stata chiusa");
 
-							break;
 
 						}
 
@@ -74,6 +77,6 @@ public class Principale {
 			}
 
 		}
-
 	}
+
 }

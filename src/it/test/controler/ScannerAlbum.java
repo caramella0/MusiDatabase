@@ -1,5 +1,6 @@
 package it.test.controler;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import it.test.service.AggiungiAlbumService;
 
 public class ScannerAlbum {
 	
-	public void scannerAggiungi() throws SQLException {
+	public void scannerAggiungi() throws SQLException, ConnectException {
 		
 		Scanner scanner = new Scanner(System.in);
 

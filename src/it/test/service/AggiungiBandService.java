@@ -1,5 +1,6 @@
 package it.test.service;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 
 import it.test.dao.AggiugiBandDao;
@@ -7,7 +8,7 @@ import it.test.model.Band;
 
 public class AggiungiBandService {
 	
-	public void aggiungiDatiBand(String nomeBand, String genere, int anno) throws SQLException {
+	public void aggiungiDatiBand(String nomeBand, String genere, int anno) throws SQLException, ConnectException {
 		
 		Band band = new Band();
 		
