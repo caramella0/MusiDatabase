@@ -38,22 +38,23 @@ public class StampaDatabase {
 			ResultSet rsalbum = psalbum.executeQuery();
 
 			while (rsalbum.next()) {
+				System.out.println("--------------------------------");
 				System.out.println("INFO ALBUM");
 				System.out.println("ID: " + rsalbum.getInt(1));
 				System.out.println("Titolo album: " + rsalbum.getString(2));
 				System.out.println("Anno Album: " + rsalbum.getString(3));
+				System.out.println("--------------------------------");
+
 			}
 
 			rsband.close();
 			psband.close();
 			rsalbum.close();
 			psalbum.close();
-			conn.closeConnection();
-		} else {
-			
+		    conn.closeConnection();
+		    
 			Principale.main(null);
 
-		}
-
+		} 
 	}
 }

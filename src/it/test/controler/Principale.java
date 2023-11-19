@@ -52,22 +52,17 @@ public class Principale {
 							ConnessioneServer conness = new ConnessioneServer();
 							conness.getConnection();
 
-							if (conness.equals(true)) {
-
-								System.out.println(" ");
-								System.out.println("Connessione stabilita");
-
-							}
+							System.out.println(" ");
+							System.out.println("Connessione stabilita");
+							
+							Principale.main(args);
 
 						} else if (opzioneScelta == 6) {
 
 							ConnessioneServer conness = new ConnessioneServer();
 							conness.closeConnection();
 							System.out.println("La connessione e stata chiusa");
-
-
 						}
-
 					}
 
 				}

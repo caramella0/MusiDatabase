@@ -22,6 +22,7 @@ public class ConnessioneServer {
 			
 			connessione = dataSource.getConnection();
 			
+			
 		}
 	
 	} catch (SQLException e) {
