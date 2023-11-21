@@ -1,5 +1,6 @@
 package it.test.controler;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ import it.test.service.RimuoviListaBandService;
 
 public class ScannerRimuovi {
 
-	public void scannerRimuovi() throws SQLException {
+	public void scannerRimuovi() throws SQLException, ConnectException {
 
 		Scanner scanner = new Scanner(System.in);
 

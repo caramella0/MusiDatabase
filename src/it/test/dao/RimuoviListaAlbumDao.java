@@ -1,5 +1,6 @@
 package it.test.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,7 +10,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class RimuoviListaAlbumDao {
 
-	public void rimuoviLista(Album id) throws SQLException {
+	public void rimuoviLista(Album id) throws SQLException, ConnectException {
 
 
 		ConnessioneServer conn = new ConnessioneServer();

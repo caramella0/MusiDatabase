@@ -51,11 +51,15 @@ public class Principale {
 
 							ConnessioneServer conness = new ConnessioneServer();
 							conness.getConnection();
-
-							System.out.println(" ");
-							System.out.println("Connessione stabilita");
 							
-							Principale.main(args);
+							if(conness.equals(true)) {
+								System.out.println(" ");
+								System.out.println("Connessione stabilita");
+								
+								Principale.main(args);
+							}
+
+							
 
 						} else if (opzioneScelta == 6) {
 
