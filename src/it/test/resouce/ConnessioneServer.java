@@ -30,7 +30,7 @@ public class ConnessioneServer {
 		}
 	
 	} catch (SQLException e) {
-		
+		System.out.println("");
 		System.out.println("Impossibile connettersi al server");
 		Principale.main(null);
 	}
