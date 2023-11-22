@@ -1,5 +1,6 @@
 package it.test.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -10,7 +11,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class RimuoviListaBandDao {
 
-	public void rimuoviLista(Band scelta) throws SQLException {
+	public void rimuoviLista(Band scelta) throws SQLException, ConnectException {
 		
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection rimuovi1 = conn.getConnection();

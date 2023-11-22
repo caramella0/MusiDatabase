@@ -1,5 +1,6 @@
 package it.test.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -10,7 +11,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class RimuoviListaAlbumDao {
 
-	public void rimuoviLista(Album album) throws SQLException {
+	public void rimuoviLista(Album album) throws SQLException, ConnectException {
 
 		ConnessioneServer conn = new ConnessioneServer();
 		Connection rimuovi1 = conn.getConnection();
@@ -19,16 +20,10 @@ public class RimuoviListaAlbumDao {
 		PreparedStatement ps = rimuovi1.prepareStatement(sqlRimuovi);
 		ps.setString(1, album.getNomeAlbum());
 		
-		String sql = "SELECT ";
-		if (album.getNomeAlbum() == album.getNomeAlbum()) {
-			ps.executeUpdate();
+		ps.executeUpdate();
 
-			System.out.println("Operazione conclusa con successo");
-			ps.close();
-			
-		}else {
-			System.out.println("no");
-		}
+		System.out.println("Operazione conclusa con successo");
+		ps.close();
 
 	}
 

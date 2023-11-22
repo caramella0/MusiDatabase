@@ -1,5 +1,6 @@
 package it.test.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import it.test.resouce.ConnessioneServer;
 
 public class Cerca {
 
-	public void ricerca() throws SQLException {
+	public void ricerca() throws SQLException, ConnectException {
 
 		Scanner scanner = new Scanner(System.in);
 

@@ -1,5 +1,6 @@
 package it.test.service;
 
+import java.net.ConnectException;
 import java.sql.SQLException;
 
 import it.test.dao.RimuoviListaAlbumDao;
@@ -9,7 +10,7 @@ import it.test.model.Band;
 
 public class RimuoviListaAlbumService {
 	
-	public void rimuoviListaService(String cancellaAlbum) throws SQLException {
+	public void rimuoviListaService(String cancellaAlbum) throws SQLException, ConnectException {
 
 		Album album = new Album();
 		

@@ -12,6 +12,7 @@ public class SceltaDueLista {
 	public void sceltaDue() throws SQLException, ConnectException {
 
 		try (Scanner opzione = new Scanner(System.in)) {
+			System.out.println("");
 			System.out.println("Vuoi caricare una Band o un Album o entrambi?");
 			System.out.println("Digita 'band' per caricare una Band");
 			System.out.println("Digita 'album' per caricare un Album");
@@ -43,10 +44,11 @@ public class SceltaDueLista {
 
 				Principale.main(null);
 
-			}else {
-			System.out.println("Opzione non valida. Inserire una delle opzioni disponibili");
-			SceltaDueLista ritorno = new SceltaDueLista();
-			ritorno.sceltaDue();
+			} else {
+				System.out.println("");
+				System.out.println("Opzione non valida. Inserire una delle opzioni disponibili");
+				SceltaDueLista ritorno = new SceltaDueLista();
+				ritorno.sceltaDue();
 			}
 		}
 	}
